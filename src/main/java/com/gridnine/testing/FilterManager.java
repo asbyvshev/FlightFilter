@@ -34,7 +34,7 @@ public class FilterManager {
             throw new IllegalArgumentException(
                     "you must specify filters");
         }
-        List<Flight> filteredList = flights;
+        List<Flight> filteredList = new ArrayList<>(flights);
         for (Filter filter:filters) {
             filteredList = filter.make(filteredList);
         }
