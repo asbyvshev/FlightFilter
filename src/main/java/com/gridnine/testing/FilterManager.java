@@ -2,10 +2,16 @@ package com.gridnine.testing;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+
 
 public class FilterManager {
     private List<Filter> filters;
+
+    public List<Filter> getFilters() {
+        return Collections.unmodifiableList(filters);
+    }
 
     public void add(Filter ...filters) {
         if (this.filters == null){
