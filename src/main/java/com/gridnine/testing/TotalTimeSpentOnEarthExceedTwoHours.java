@@ -16,7 +16,7 @@ public class TotalTimeSpentOnEarthExceedTwoHours implements Filter {
           }
           LocalDateTime startFlight = LocalDateTime.now();
           LocalDateTime endFlight = LocalDateTime.now();
-          long totalHoursInAir = 0;
+          long totalMinInAir = 0;
             for (int i = 0; i < segList.size(); i++) {
                 if (i == 0) {
                     startFlight = segList.get(i).getDepartureDate();
@@ -24,11 +24,11 @@ public class TotalTimeSpentOnEarthExceedTwoHours implements Filter {
                 if (i == segList.size() - 1){
                     endFlight = segList.get(i).getArrivalDate();
                 }
-                totalHoursInAir += ChronoUnit.MINUTES.between(segList.get(i).getDepartureDate(),
+                totalMinInAir += ChronoUnit.MINUTES.between(segList.get(i).getDepartureDate(),
                         segList.get(i).getArrivalDate());
             }
-          long totalHoursFlight = ChronoUnit.MINUTES.between(startFlight,endFlight);
-            if (totalHoursFlight - totalHoursInAir > 120){
+          long totalMinFlight = ChronoUnit.MINUTES.between(startFlight,endFlight);
+            if (totalMinFlight - totalMinInAir > 120){
                 filerFlights.remove(f);
             }
         }
