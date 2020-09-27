@@ -17,10 +17,7 @@ public class Main {
         Filter totalRechargeTime = new TotalTimeSpentOnEarthExceedTwoHours();
         // 4.Добавляем в FilterManager фильтры.
         manager.add(toCurrentTime,earlierThanDepartureDate,totalRechargeTime);
-//        manager.add(totalRechargeTime);
         // 5.Применяем FilterManager к полету.
-        flights.stream().forEach(System.out::println);
-        System.out.println("===========================================================================");
         manager.apply(flights).stream().forEach(System.out::println);
     }
 }
