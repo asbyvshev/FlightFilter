@@ -18,6 +18,6 @@ public class Main {
         // 4.Добавляем в FilterManager фильтры.
         manager.add(toCurrentTime,earlierThanDepartureDate,totalRechargeTime);
         // 5.Применяем FilterManager к полету.
-        manager.apply(flights).stream().forEach(System.out::println);
+        manager.apply(flights).forEach(System.out::println);
     }
 }
